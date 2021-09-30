@@ -2,11 +2,9 @@
 function writeNumberInANewBase() {
   let numberForChange = prompt('Введите число', 0);
   let numberForBase = prompt('Введите систему исчисления, число от 2 до 32', 2);
-
-  if (+numberForChange < 0) {
-    numberForChange = numberForChange >>> 0;
-  }
-  if (!isNaN(+numberForChange) &&
+  
+  if ( isFinite(numberForChange) &&
+    +numberForChange > 0 &&
     !isNaN(+numberForBase) &&
     numberForBase >= 2 &&
     numberForBase <= 32) {
@@ -21,8 +19,8 @@ function writeNumberInANewBase() {
 function getSumAndQuotient() {
   let firstNumber = prompt('Введите первое число', 0);
 
-  if (isNaN(+firstNumber)) {
-    console.log('Некорректный ввод!');
+  if (!isFinite(+firstNumber)) {
+      console.log('Некорректный ввод!');
   }
   else {
     let secondNumber = prompt('Введите второе число', 0);
