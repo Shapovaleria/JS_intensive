@@ -3,7 +3,7 @@ function makeObjectDeepCopy(obj) {
     console.log('Function works with objects only');
     return obj
   }
-  let objCopy = {};
+  let objCopy = Array.isArray(obj) ? [] : {};
   for (let i in obj) {
     if (obj[i] && typeof (obj[i]) === "object" && !(obj[i] instanceof Array)) {
       objCopy[i] = makeObjectDeepCopy(obj[i]);
