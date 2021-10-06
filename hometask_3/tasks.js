@@ -1,3 +1,4 @@
+// with for
 Array.prototype.myFilter = function (callback, thisArgs) {
   if (typeof callback !== 'function') {
     throw new Error('Callback should be a function')
@@ -16,6 +17,29 @@ Array.prototype.myFilter = function (callback, thisArgs) {
         filteredArray.push(this[i])
       }
     }
+  }
+  return filteredArray
+};
+
+// with forEach
+Array.prototype.myFilter = function (callback, thisArgs) {
+  if (typeof callback !== 'function') {
+    throw new Error('Callback should be a function')
+  }
+  let filteredArray = [];
+  if (!thisArgs) {
+    this.forEach((elem) => {
+      if (callback(elem, index, array)) {
+        filteredArray.push(elem)
+      }
+    })
+  }
+  else {
+    this.forEach((elem) => {
+      if (callback.call(thisArgs, elem, index, array)) {
+        filteredArray.push(elem)
+      }
+    })
   }
   return filteredArray
 };
