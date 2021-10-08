@@ -4,22 +4,14 @@ Array.prototype.myFilter = function (callback, thisArgs) {
     throw new Error('Callback should be a function')
   }
   let filteredArray = [];
-  if (!thisArgs) {
-    for (let i = 0; i < this.length; i++) {
-      if (callback(this[i], i, this)) {
-        filteredArray.push(this[i])
-      }
-    }
-  }
-  else {
     for (let i = 0; i < this.length; i++) {
       if (callback.call(thisArgs, this[i], i, this)) {
         filteredArray.push(this[i])
       }
     }
-  }
   return filteredArray
 };
+
 
 // with forEach
 Array.prototype.myFilter = function (callback, thisArgs) {
@@ -27,20 +19,11 @@ Array.prototype.myFilter = function (callback, thisArgs) {
     throw new Error('Callback should be a function')
   }
   let filteredArray = [];
-  if (!thisArgs) {
-    this.forEach((elem) => {
-      if (callback(elem, index, array)) {
-        filteredArray.push(elem)
-      }
-    })
-  }
-  else {
     this.forEach((elem) => {
       if (callback.call(thisArgs, elem, index, array)) {
         filteredArray.push(elem)
       }
     })
-  }
   return filteredArray
 };
 
