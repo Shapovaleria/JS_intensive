@@ -1,5 +1,5 @@
-function concatStrings (str, separator) {
-  let allStrings = `${str}`
+function concatStrings(str, separator) {
+  let allStrings = str;
   function makeConcatination(x) {
     if (typeof x == 'string') {
       if (separator !== undefined && typeof separator == 'string') {
@@ -11,9 +11,7 @@ function concatStrings (str, separator) {
         return makeConcatination
       }
     }
-    else {
-      return allStrings
-    }
+    return allStrings
   };
   return makeConcatination
 }
@@ -25,13 +23,13 @@ class Calculator {
       throw new Error('Function works with 2 numbers only')
     }
     this.x = x,
-    this.y = y,
-    this.setX = this.setX.bind(this),
-    this.setY = this.setY.bind(this),
-    this.logSum = this.logSum.bind(this),
-    this.logMul = this.logMul.bind(this),
-    this.logSub = this.logSub.bind(this),
-    this.logDiv = this.logDiv.bind(this)
+      this.y = y,
+      this.setX = this.setX.bind(this),
+      this.setY = this.setY.bind(this),
+      this.logSum = this.logSum.bind(this),
+      this.logMul = this.logMul.bind(this),
+      this.logSub = this.logSub.bind(this),
+      this.logDiv = this.logDiv.bind(this)
   }
 
   setX(num) {
