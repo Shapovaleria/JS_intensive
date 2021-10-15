@@ -10,14 +10,12 @@ class Stack {
 
   push(elem) {
     const element = {value: elem, previous: null}
-    if (this.last) {
       if (this.length < this.maxSize) {
         element.previous = this.last
       }
       else {
         throw new Error(`The stack is already full, max size is ${this.maxSize}`)
       }
-    }
     this.last = element ;
     this.length++;
   };
@@ -37,10 +35,7 @@ class Stack {
     return this.last.value
   };
   isEmpty() {
-    if (this.length === 0) {
-      return true
-    }
-    return false
+    return this.length === 0;
   };
   toArray() {
     let arrayFromStack = [];
