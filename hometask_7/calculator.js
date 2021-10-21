@@ -26,6 +26,9 @@ function clickNumber(num) {
       decimalcounter++;
       output.value += num;
     }
+    else if (num === '0' && output.value.slice(-1) === '÷') {
+      showErrorMessage('you can\'t divide by zero')
+    }
     else if (num !== '.' && output.value.length <= 25) {
       output.value += num
     }
@@ -38,7 +41,7 @@ function clickNumber(num) {
 
 function clickOperation(op) {
   return function () {
-    if (output.value.slice(-1) !== '+' && output.value.slice(-1) !== '+' && output.value.slice(-1) !== '×' && output.value.slice(-1) !== '÷') {
+    if (output.value.slice(-1) !== '+' && output.value.slice(-1) !== '-' && output.value.slice(-1) !== '×' && output.value.slice(-1) !== '÷') {
       output.value += op;
       decimalcounter = 0;
       lastOperation = null;
