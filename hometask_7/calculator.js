@@ -122,8 +122,8 @@ function finalCalculation() {
     calculateNumbers(arrayFromStr);
   }
   else {
-    let arr = [+output.value, lastOperation[0], lastOperation[1]];
-    calculateNumbers(arr)
+    let repeatLastOperationArr = [+output.value, lastOperation[0], lastOperation[1]];
+    calculateNumbers(repeatLastOperationArr)
   }
 }
 
