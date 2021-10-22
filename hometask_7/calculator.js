@@ -78,8 +78,8 @@ function makeArrayFromString(str) {
 const basicOperations = [
   { '×': (x, y) => x * y },
   { '÷': (x, y) => x / y },
+  { '-': (x, y) => x - y },
   { '+': (x, y) => x + y },
-  { '-': (x, y) => x - y }
 ];
 
 function calculateNumbers(array) {
